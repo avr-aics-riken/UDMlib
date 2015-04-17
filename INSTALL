@@ -1,0 +1,198 @@
+#
+# UDMlib - Unstructured Data Management Library
+# Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+# All rights reserved.
+#
+
+1. Required libraries
+UDMlib requests to install following libraries:
+1) MPICH or OpenMPI
+MPICH   : http://www.mpich.org/
+OpenMPI : http://www.open-mpi.org/
+
+2) CGNS
+http://cgns.sourceforge.net/
+
+3) Zoltan
+http://www.cs.sandia.gov/Zoltan/Zoltan.html
+** The same MPI library must be employed to build for both Zoltan and UDMlib.
+
+4) avr-aics-riken/TextParser
+https://github.com/avr-aics-riken/TextParser
+
+
+2. Build libraries
+
+1) Install script for OpenMPI
+$ cat config_ompi.sh
+#!/bin/sh
+export CC=icc
+export CFLAGS=-O3
+export CXX=icpc
+export CXXFLAGS=-O3
+export F77=ifort
+export FFLAGS=-O3
+export FC=ifort
+export FCFLAGS=-O3
+./configure --prefix=$1
+
+$ config_ompi.sh /install-dir
+$ make
+$ sudo make install
+
+2) Install script for CGNS
+$ cat config_cgns.sh
+#!/bin/sh
+export CC=mpicc
+export CFLAGS=-O3
+export FC=mpif90
+export FCFLAGS=-O3
+./configure --prefix=$1 --enable-64bit
+
+$ tar xzvf cgnslib_3.2.1.tar.gz
+$ cd cgnslib_3.2.1/src
+$ config_cgns.sh /install-dir
+$ make
+$ sudo make install
+
+3) Install script for Zoltan
+$ cat config_zoltan.sh
+#!/bin/sh
+export CC=mpicc
+export CFLAGS=-O3
+export FC=mpif90
+export FCFLAGS=-O3
+../configure --prefix=$1 --enable-mpi --enable-f90interface
+
+$ tar xvfz zoltan_distrib_v3.81.tar.gz
+$ cd Zoltan_v3.81
+$ mkdir BUILD_DIR
+$ cd BUILD_DIR
+$ config_zoltan.sh /install-dir
+$ make everything
+$ make install
+
+4) Install of TextParser
+see INSTALL of TextParser
+
+
+3. How to build UDMlib
+
+> ./configure [OPTIONS]
+> make
+> make install
+
+
+
+./configure --prefix=/usr/local/UDMlib \
+--with-comp=INTEL \
+--with-cgns=/usr/local/cgns \
+--with-zoltan=/usr/local/Zoltan \
+--with-tp=/usr/local/FFV/TextParser \
+CXX=mpicxx \
+CXXFLAGS=-O3
+
+
+3.1 configure
+configureのOPTIONSには、必須ライブラリのMPICH 又は OpenMPI、CGNS、Zoltan、
+TextParserのインストールパスを設定する必要があります。
+以下、configureの基本的な記述例を示します。
+(configure記述例)
+> ./configure \
+--with-mpich=/usr/local/mpich-3.1.2_gcc  \
+--with-cgns=/usr/local/cgnslib_3.2.1   \
+--with-zoltan=/usr/local/zoltan-3.8  \
+--with-tp=/usr/local/textparser
+
+configureのOPTIONSについて説明します。
+[OPTIONS]
+--prefix=INSTALL_DIR
+ライブラリをインストールするディレクトリをINSTALL_DIRに指定します。
+デフォルトは/usr/local/udmlibです。
+
+--with-comp=(INTEL|FJ|GNU)
+使用するコンパイラを指定します。
+INTEL compiler   : INTEL
+Fujitsu compiler : FJ
+GNU compiler     : GNU  (デフォルト)
+
+--with-mpich=MPICH_PATH
+MPICHライブラリを使用する場合にはMPICH_PATHにインストール先を指定します。
+--with-ompiオプションと--with-mpichオプションは同時に指定しないでください。
+--with-ompiオプションが優先されます。
+
+--with-ompi=OPENMPI_PATH
+OpenMPIライブラリを使用する場合にはOPENMPI_PATHにインストール先を指定します。
+--with-ompiオプションと--with-mpichオプションは同時に指定しないでください。
+--with-ompiオプションが優先されます。
+
+--with-cgns=CGNS_PATH
+CGNS_PATHにCGNSライブラリのインストール先を指定します。
+
+--with-zoltan=ZOLTAN_PATH
+ZOLTAN_PATHにZoltanライブラリのインストール先を指定します。
+
+--with-tp=TP_PATH
+TP_PATHにTextParserライブラリのインストール先を指定します。
+
+CXX=CXX_COMPILER
+C++コンパイラをCXX_COMPILERに指定します。
+
+CXXFLAGS=CXX_OPTIONS
+C++コンパイラでのコンパイル時に付加するオプションをCXX_OPTIONSに指定します。
+
+CC=C_COMPILER
+CコンパイラをC_COMPILERに指定します。
+
+CFLAGS=C_OPTIONS
+Cコンパイラでのコンパイル時に付加するオプションをC_OPTIONSに指定します。
+
+LDFLAGS=LD_OPTIONS
+追加ライブラリのオプションを指定します。
+
+3.2 make
+makeコマンドを実行し、UDMlibのソースコードをコンパイルします。
+(コマンド)
+> make
+
+3.3 make install
+make installコマンドを実行し、UDMlibライブラリをインストールします。
+(コマンド)
+> make install
+
+3.4 configure例
+
+3.4.1 GNUコンパイラ + OPENMPI
+> ./configure --prefix=/usr/local/udmlib \
+--with-ompi=/usr/local/openmpi-1.6.5_gcc \
+--with-cgns=/usr/local/cgnslib_3.2.1 \
+--with-tp=/usr/local/textparser \
+--with-zoltan=/usr/local/zoltan-3.8
+
+ZoltanライブラリはOPENMPIライブラリを指定してコンパイルされたものである必要があります。
+
+3.4.2 INTELコンパイラ + MPICH
+> ./configure --prefix=/usr/local/udmlib \
+--with-mpich=/usr/local/mpich-3.1.2_intel \
+--with-cgns=/usr/local/cgnslib_3.2.1 \
+--with-tp=/usr/local/textparser \
+--with-zoltan=/usr/local/zoltan-3.8_mpich \
+--with-comp=INTEL \
+CXX=/opt/intel/bin/icpc
+
+ZoltanライブラリはMPICHライブラリを指定してコンパイルされたものである必要があります。
+
+3.4.3 mpicxxコンパイラ
+> ./configure --prefix=/usr/local/udmlib \
+--with-cgns=/usr/local/cgnslib_3.2.1 \
+--with-tp=/usr/local/textparser \
+--with-zoltan=/usr/local/zoltan-3.8  \
+--host=x86_64-unknown-linux-gnu \
+CXX=/usr/local/openmpi-1.6.5_gcc/bin/mpicxx
+
+--hostオプションを指定する必要があります。
+
+
+
+
+

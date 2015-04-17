@@ -1,0 +1,16 @@
+#
+# UDMlib - Unstructured Data Management Library
+# Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+# All rights reserved.
+#
+
+Overview of UDMlib
+==================
+
+UDMlib is a file management library for simulations using unstructured data,
+and provides following functions:
+
+- Management of distributed files
+- Restart from previous calculated data (standard)
+- Restart from previous calculated data of the number of different process
+- Staging helper
