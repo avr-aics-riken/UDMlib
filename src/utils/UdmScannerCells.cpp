@@ -229,8 +229,8 @@ template UdmSize_t UdmScannerCells::getScanCgnsElementsIds(UdmElementType_t elem
  */
 UdmSize_t UdmScannerCells::scannerGraph()
 {
-    if (this->scan_zone == NULL) return NULL;
-    if (this->scan_zone->getSections() == NULL) return NULL;
+    if (this->scan_zone == NULL) return 0;
+    if (this->scan_zone->getSections() == NULL) return 0;
 
     return this->scannerGraph(this->scan_zone->getSections());
 }

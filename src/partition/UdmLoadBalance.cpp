@@ -272,7 +272,7 @@ UdmError_t UdmLoadBalance::partitionZone(UdmZone *zone)
 
         migrate_pos += num_sub_exports;
 
-        printf("[rank=%d] Zoltan::Migrate loop = %d/%d, size=%d\n",
+        printf("[rank=%d] Zoltan::Migrate loop = %d/%d, size=%ld\n",
                 this->getMpiRankno(), n+1, num_migrate_count, migrate_size);
 
 #ifdef _DEBUG

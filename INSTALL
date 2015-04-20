@@ -4,7 +4,9 @@
 # All rights reserved.
 #
 
-1. Required libraries
+SOFTWARE REQUIREMENT
+====================
+
 UDMlib requests to install following libraries:
 1) MPICH or OpenMPI
 MPICH   : http://www.mpich.org/
@@ -21,7 +23,8 @@ http://www.cs.sandia.gov/Zoltan/Zoltan.html
 https://github.com/avr-aics-riken/TextParser
 
 
-2. Build libraries
+BUILD LIBRARIES
+===============
 
 1) Install script for OpenMPI
 $ cat config_ompi.sh
@@ -76,91 +79,97 @@ $ make install
 see INSTALL of TextParser
 
 
-3. How to build UDMlib
+HOW TO BUILD UDMlib
+===================
 
-> ./configure [OPTIONS]
-> make
-> make install
+$ ./configure [OPTIONS]
+$ make
+$ make install
 
-
-
-./configure --prefix=/usr/local/UDMlib \
---with-comp=INTEL \
---with-cgns=/usr/local/cgns \
---with-zoltan=/usr/local/Zoltan \
---with-tp=/usr/local/FFV/TextParser \
-CXX=mpicxx \
-CXXFLAGS=-O3
+It is strongly recommended to use wrapper compiler for convenience. For instance, if you
+^^^^^^^^^^^^^^^^^^^^^^^
+want to compile with OpenMPI, compile OpenMPI library by a compiler you want to use before
+install related libraries (See BUILD LIBRARIES).
 
 
-3.1 configure
-configureのOPTIONSには、必須ライブラリのMPICH 又は OpenMPI、CGNS、Zoltan、
-TextParserのインストールパスを設定する必要があります。
-以下、configureの基本的な記述例を示します。
-(configure記述例)
-> ./configure \
---with-mpich=/usr/local/mpich-3.1.2_gcc  \
---with-cgns=/usr/local/cgnslib_3.2.1   \
---with-zoltan=/usr/local/zoltan-3.8  \
---with-tp=/usr/local/textparser
+Configure options:
 
-configureのOPTIONSについて説明します。
-[OPTIONS]
+--host=hostname
+Specify in case of cross-compilation.
+
 --prefix=INSTALL_DIR
-ライブラリをインストールするディレクトリをINSTALL_DIRに指定します。
-デフォルトは/usr/local/udmlibです。
+Specify a directory to be installed. The default directory is /usr/local/udmlib.
 
---with-comp=(INTEL|FJ|GNU)
-使用するコンパイラを指定します。
-INTEL compiler   : INTEL
-Fujitsu compiler : FJ
-GNU compiler     : GNU  (デフォルト)
-
---with-mpich=MPICH_PATH
-MPICHライブラリを使用する場合にはMPICH_PATHにインストール先を指定します。
---with-ompiオプションと--with-mpichオプションは同時に指定しないでください。
---with-ompiオプションが優先されます。
-
---with-ompi=OPENMPI_PATH
-OpenMPIライブラリを使用する場合にはOPENMPI_PATHにインストール先を指定します。
---with-ompiオプションと--with-mpichオプションは同時に指定しないでください。
---with-ompiオプションが優先されます。
+--with-cdm=CDMLIB_DIR
+Specify the directory path that is installed CDM library.
 
 --with-cgns=CGNS_PATH
-CGNS_PATHにCGNSライブラリのインストール先を指定します。
+Specify the directory path that the CGNS library is installed.
+
+--with-comp=(INTEL|FJ|GNU)
+If you want ot use Intel compiler, choose INTEL, and if Fujitsu compiler, specify FJ.
+This option is mandatory and GNU is default.
+
+--with-cpm=CPMLIB_DIR
+Specify the directory path that is installed CPM library.
+
+--with-precision=(single|double)
+Specify the REAL macro by selecting single(4bytes) or double(8bytes). If this
+option is omitted, single precision will be applied.
+
+--with-ompi=OPENMPI_DIR
+If the OpenMPI library is used, specify the directory path that OpenMPI library is
+installed. This option will be required to use a native compiler. Instead, if the
+wrapper compiler, e.g., mpicxx, is used to compile, this options can be eliminated.
+
+--with-parser=TEXTPARSER_PATH
+Specify the directory path that is installed TextParser library.
+
+--with-pm=PMLIB_DIR
+Specify the directory path that Performance Monitor library is installed. This
+option is required if only you need a performance report.
 
 --with-zoltan=ZOLTAN_PATH
-ZOLTAN_PATHにZoltanライブラリのインストール先を指定します。
+Specify the directory path that Zoltan is installed.
 
---with-tp=TP_PATH
-TP_PATHにTextParserライブラリのインストール先を指定します。
-
-CXX=CXX_COMPILER
-C++コンパイラをCXX_COMPILERに指定します。
-
-CXXFLAGS=CXX_OPTIONS
-C++コンパイラでのコンパイル時に付加するオプションをCXX_OPTIONSに指定します。
 
 CC=C_COMPILER
-CコンパイラをC_COMPILERに指定します。
+Specify a C compiler.
 
 CFLAGS=C_OPTIONS
-Cコンパイラでのコンパイル時に付加するオプションをC_OPTIONSに指定します。
+Specify compiler options.
+
+CXX=CXX_COMPILER
+Specify a C++ compiler, e.g., g++, icpc, xlc++ or others.
+
+CXXFLAGS=CXX_OPTIONS
+Specify compiler options.
+
+F90=FORTRAN90_COMPILER
+Specify a fortran90 compiler.
+
+F90FLAGS=FORTRAN90_OPTIONS
+Specify compiler options.
 
 LDFLAGS=LD_OPTIONS
-追加ライブラリのオプションを指定します。
+Specify directory path for Fortran libraries.
 
-3.2 make
-makeコマンドを実行し、UDMlibのソースコードをコンパイルします。
-(コマンド)
-> make
 
-3.3 make install
-make installコマンドを実行し、UDMlibライブラリをインストールします。
-(コマンド)
-> make install
 
-3.4 configure例
+CONFIGURE EXAMPLES
+==================
+
+
+$ ./configure --prefix=/usr/local/UDMlib \
+  --with-comp=INTEL \
+  --with-cgns=/usr/local/cgns \
+  --with-zoltan=/usr/local/Zoltan \
+  --with-tp=/usr/local/FFV/TextParser \
+  CXX=mpicxx \
+  CXXFLAGS=-O3 \
+  CC=mpicc \
+  CFLAGS=-O3
+
 
 3.4.1 GNUコンパイラ + OPENMPI
 > ./configure --prefix=/usr/local/udmlib \

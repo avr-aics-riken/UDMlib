@@ -1,29 +1,29 @@
-# UDMlib
+## UDMlib
 UDMlib is a file management library for simulations using unstructured data.
 
 
-# License
+## License
 BSD (2-clause) license
 
 
-# Software Requirement
+## Software Requirement
 
-## MPI library
+### MPI library
 
-## CGNS   
+CGNS   
 - http://cgns.sourceforge.net/
 
-## Zoltan 
+Zoltan 
 - http://www.cs.sandia.gov/Zoltan/Zoltan.html
 - Same MPI library must be used for compiling both Zoltan and UDMlib.
 
-## Text Parser
+### Text Parser
 - http://avr-aics-riken.github.io/TextParser/
 
-# how to build
-> ./configure [OPTIONS]
-> make
-> make install
+## how to build
+- ./configure [OPTIONS]
+- make
+- make install
 
 ## Configure examples
 see INSTALL

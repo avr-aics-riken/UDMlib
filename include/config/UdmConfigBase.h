@@ -197,7 +197,7 @@ inline UdmError_t UdmConfigBase::toString(long long value, std::string &buf)
 inline UdmError_t UdmConfigBase::toString(UdmSize_t value, std::string &buf)
 {
     char value_buf[std::numeric_limits<unsigned long long>::digits10 + 2]; // '-' + NULL
-    std::sprintf(value_buf, "%lu", value);
+    std::sprintf(value_buf, "%lu", (unsigned long long)value);
     buf = value_buf;
     return UDM_OK;
 }

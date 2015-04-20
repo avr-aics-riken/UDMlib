@@ -383,7 +383,7 @@ EXTRA_DIST = udm-config.in \
              examples/cxx/partition/partition_run.sh \
              examples/cxx/timeslice/timeslice_run.sh
 
-dist_data_DATA = AUTHORS COPYING ChangeLog README LICENSE NEWS
+dist_data_DATA = AUTHORS COPYING ChangeLog README LICENSE NEWS README.md
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

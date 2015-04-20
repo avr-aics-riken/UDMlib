@@ -288,8 +288,9 @@ int UdmTimeMeasure::getNumInformations() const
  */
 const std::string& UdmTimeMeasure::getInformation(int info_id) const
 {
-    if (info_id <= 0) return "";
-    if ((unsigned)info_id > this->informations.size()) return "";
+	static std::string ret;
+    if (info_id <= 0) return ret;
+    if ((unsigned)info_id > this->informations.size()) return ret;
     return this->informations[info_id-1];
 }
 
@@ -578,8 +579,9 @@ int UdmStopWatch::getNumTimeMeasure() const
  */
 const std::string& UdmStopWatch::getTimeMeasureLabel(int measure_id) const
 {
-    if (measure_id <= 0) return "";
-    if (measure_id > this->stopwatch_list.size()) return "";
+	static std::string ret;
+    if (measure_id <= 0) return ret;
+    if (measure_id > this->stopwatch_list.size()) return ret;
     std::map<std::string, UdmTimeMeasure*>::const_iterator itr = this->stopwatch_list.begin();
     std::advance(itr, measure_id-1);
     return itr->first;
@@ -594,7 +596,7 @@ const std::vector<std::string>& UdmStopWatch::getInformations(const std::string&
 {
     UdmTimeMeasure *measure = this->findTimeMeasure(key);
     if (measure == NULL) {
-        std::vector<std::string> infos;
+        static std::vector<std::string> infos;
         return infos;
     }
     return measure->getInformations();
@@ -629,7 +631,7 @@ UdmTimeMeasure* UdmStopWatch::findTimeMeasure(const std::string& key) const
     std::map<std::string, UdmTimeMeasure*>::const_iterator itr;
     itr = this->stopwatch_list.find(key);
     if (itr == this->stopwatch_list.end()) {
-        return false;
+        return NULL;
     }
 
     UdmTimeMeasure* measure = itr->second;

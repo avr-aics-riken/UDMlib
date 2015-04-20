@@ -720,7 +720,7 @@ void UdmRankConnectivity::toString(std::string &buf) const
         mpi_infos.toString(mpi_buf);
         previous_infos.toString(previous_buf);
         sprintf(tmp, "rankinfo : %ld[%d] <= %s : mpi_rank=%s\n",
-                node->getId(), node->getMyRankno(),
+                (long long)node->getId(), node->getMyRankno(),
                 previous_buf.c_str(),
                 mpi_buf.c_str());
         buf += tmp;

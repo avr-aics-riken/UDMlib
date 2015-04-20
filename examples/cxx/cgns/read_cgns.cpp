@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     char output_path[256] = {0x00};
     char drive[32]={0x00}, folder[256]={0x00}, name[128]={0x00}, ext[32]={0x00};
     int myrank, num_procs;
-    std:string buf;
+    string buf;
     const char usage[] = "usage: read_cgns [CGNS_FILE]";
 
     if (argc <= 1) {

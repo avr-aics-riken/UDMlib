@@ -55,7 +55,7 @@ void readCgns(const char *filename)
     user_defined->getUserDataArray("UserMatrix", Udm_RealSingle, mat_values);
     // 表示
     printf("UserMatrix\n");
-    printf("    size = %ld x %ld \n", dim_sizes[0], dim_sizes[1]);
+    printf("    size = %ld x %ld \n", (long long)dim_sizes[0], (long long)dim_sizes[1]);
     n = 0;
     printf("    value = ");
     for (j=0; j<dim_sizes[1]; j++) {
@@ -76,7 +76,7 @@ void readCgns(const char *filename)
     user_defined->getUserDataArray("UserArray", Udm_Integer, array_values);
     // 表示
     printf("UserArray\n");
-    printf("    size = %ld \n", dim_sizes[0]);
+    printf("    size = %ld \n", (long long)dim_sizes[0]);
     n = 0;
     printf("    value = ");
     for (i=0; i<dim_sizes[0]; i++) {
@@ -147,7 +147,7 @@ int main(int argc, char *argv[]) {
     float user_real[10][3];
     int value = 0;
     printf("UserMatrix\n");
-    printf("    size = %ld x %ld \n", user_sizes[0], user_sizes[1]);
+    printf("    size = %ld x %ld \n", (long long)user_sizes[0], (long long)user_sizes[1]);
     printf("    value = ");
     for (j=0; j<user_sizes[1]; j++) {
         for (i=0; i<user_sizes[0]; i++) {
@@ -162,7 +162,7 @@ int main(int argc, char *argv[]) {
     UdmSize_t size = 5;
     int user_int[5] = {1, 3, 5, 7, 9};
     printf("UserArray\n");
-    printf("    size = %ld \n", size);
+    printf("    size = %ld \n", (long long)size);
     printf("    value = ");
     for (i=0; i<size; i++) {
         printf("%d ", user_int[i]);

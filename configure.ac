@@ -8,7 +8,7 @@
 
 
 AC_PREREQ(2.57)
-AC_INIT([UDMlib], [1.0.6],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
+AC_INIT([UDMlib], [1.0.7],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
 
 AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR([src/UdmBase.cpp])
@@ -17,7 +17,7 @@ AC_CONFIG_HEADERS([config.h])
 #
 # revision No.
 #
-UDM_REVISION="20150417_1800"
+UDM_REVISION="20150420_1200"
 AC_SUBST(UDM_REVISION)
 
 

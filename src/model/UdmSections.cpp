@@ -722,6 +722,8 @@ UdmError_t UdmSections::removeComponentCell(UdmSize_t component_id)
         this->component_cells.erase(rm_itr);
         return UDM_OK;
     }
+
+    return UDM_OK;
 }
 
 /**

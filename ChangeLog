@@ -9,6 +9,11 @@ REVISION HISTORY
 ================
 
 ------------------
+2015-04-20
+- fix printf args.
+- edit INSTALL
+
+------------------
 2015-04-17
 - first release package
 

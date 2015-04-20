@@ -89,8 +89,8 @@ int UdmUserDefinedDatas::getNumUserDatas() const
  */
 const std::string& UdmUserDefinedDatas::getUserDataName(int defined_id) const
 {
-    if (defined_id <= 0) return std::string();
-    if (defined_id > this->user_datas.size()) return std::string();
+    if (defined_id <= 0) return this->getName();		// nameは空文字
+    if (defined_id > this->user_datas.size()) return this->getName();	// nameは空文字
     return this->user_datas[defined_id-1]->getName();
 }
 

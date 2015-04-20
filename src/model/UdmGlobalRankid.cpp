@@ -86,7 +86,7 @@ UdmError_t UdmGlobalRankidList::addPreviousRankInfo(int rankno, UdmSize_t locali
     bool found = true;
     // bool found = this->findGlobalRankid(globalid, found_itr);
 
-    printf("addPreviousRankInfo : %d, %ld, %d\n", rankno, localid, this->globalid_list.size());
+    printf("addPreviousRankInfo : %d, %ld, %ld\n", rankno, (long long)localid, this->globalid_list.size());
     if (!found) {
         if (this->globalid_list.size() <= 0) {
             insert_itr = this->globalid_list.end();

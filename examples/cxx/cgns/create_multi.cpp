@@ -309,7 +309,7 @@ int main(int argc, char *argv[]) {
         sprintf(virtual_filename, "%s/virtual_cells_id%08d.cgns", output_partition, myrank);
         ret = model->writeVirtualCells(virtual_filename);
         if (ret != UDM_OK) {
-            printf("Error : can not writeVirtualCells[write_filename=%s].\n", output_partition, virtual_filename);
+            printf("Error : can not writeVirtualCells[write_filename=%s].\n", virtual_filename);
         }
     }
 
