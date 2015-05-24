@@ -12,6 +12,12 @@
 
 #include "model/UdmModel.h"
 
+#ifdef isnan
+  #define ISNAN(_X) isnan(_X)
+#else
+  #define ISNAN(_X) std::isnan(_X)
+#endif
+
 namespace udm
 {
 
@@ -1198,7 +1204,7 @@ UdmError_t UdmModel::writeCgnsIterativeDatas(
     }
 
     // 時系列ステップ時間のチェック
-    if (std::isnan(timeslice_time) && timeslice_times.size() > 0) {
+    if (ISNAN(timeslice_time) && timeslice_times.size() > 0) {
         return UDM_ERROR_HANDLER(UDM_ERROR_CGNS_INVALID_BASE, "invalid timeslice_time.");
     }
 
@@ -1207,7 +1213,7 @@ UdmError_t UdmModel::writeCgnsIterativeDatas(
             timeslice_steps.begin(), timeslice_steps.end(), timeslice_step), timeslice_steps.end());
 
     // 時系列ステップ時間を削除する.
-    if (!std::isnan(timeslice_time)) {
+    if (!ISNAN(timeslice_time)) {
         timeslice_times.erase(std::remove(
                 timeslice_times.begin(), timeslice_times.end(), timeslice_time), timeslice_times.end());
     }
@@ -1221,7 +1227,7 @@ UdmError_t UdmModel::writeCgnsIterativeDatas(
     // 時系列ステップ番号、時間を追加する.
     for (n=0; n<count; n++) {
         timeslice_steps.push_back(timeslice_step);
-        if (!std::isnan(timeslice_time)) {
+        if (!ISNAN(timeslice_time)) {
             timeslice_times.push_back(timeslice_time);
         }
     }

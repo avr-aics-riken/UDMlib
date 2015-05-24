@@ -8,7 +8,7 @@
 
 
 AC_PREREQ(2.57)
-AC_INIT([UDMlib], [1.0.7],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
+AC_INIT([UDMlib], [1.0.8],[keno@riken.jp],[UDMlib])
 
 AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR([src/UdmBase.cpp])
@@ -17,7 +17,7 @@ AC_CONFIG_HEADERS([config.h])
 #
 # revision No.
 #
-UDM_REVISION="20150420_1200"
+UDM_REVISION="20150524_1400"
 AC_SUBST(UDM_REVISION)
 
 
@@ -68,7 +68,7 @@ case "$UDM_CXX" in
   *mpiFCCpx) udm_enable_mpi="wrappermpi" ;;
   *mpiicc)   udm_enable_mpi="wrappermpi" ;;
   *mpiicpc)  udm_enable_mpi="wrappermpi" ;;
-  CC)       udm_enable_mpi="wrappermpi" ;;
+  CC)        udm_enable_mpi="wrappermpi" ;;
 esac
 
 # mpiFCCpx ; Fujitsu  FX

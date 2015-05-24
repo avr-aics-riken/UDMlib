@@ -55,9 +55,13 @@ inline int udm_set_entryid(DATA_TYPE *ids, UdmSize_t id, int rankno, int num_ent
             ids[n++] = rankno;
         }
         else if (sizeof(DATA_TYPE) < sizeof(UdmSize_t)) {
+#ifdef UDM_SIZE64
             ids[n++] = (DATA_TYPE)(id >> 32);
             ids[n++] = (DATA_TYPE)(id & 0xFFFFFFFF);
             ids[n++] = rankno;
+#else
+            return 0;
+#endif
         }
     }
     else {
@@ -95,8 +99,12 @@ inline int udm_get_entryid(DATA_TYPE *ids, UdmSize_t &id, int &rankno, int num_e
             rankno = ids[2];
         }
         else if (sizeof(DATA_TYPE) < sizeof(UdmSize_t)) {
+#ifdef UDM_SIZE64
             id = ((UdmSize_t)ids[0] << 32) | ids[1];
             rankno = ids[2];
+#else
+            return 0;
+#endif
         }
     }
     else {

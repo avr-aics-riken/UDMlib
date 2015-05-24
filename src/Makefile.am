@@ -3,7 +3,6 @@
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
 #
-
 AUTOMAKE_OPTIONS = subdir-objects
 
 AM_CPPFLAGS = -I$(top_builddir)/include

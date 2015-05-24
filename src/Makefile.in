@@ -14,12 +14,6 @@
 
 @SET_MAKE@
 
-#
-# UDMlib - Unstructured Data Management Library
-# Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
-# All rights reserved.
-#
-
 
 VPATH = @srcdir@
 am__is_gnu_make = { \
@@ -375,6 +369,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+
+#
+# UDMlib - Unstructured Data Management Library
+# Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+# All rights reserved.
+#
 AUTOMAKE_OPTIONS = subdir-objects
 AM_CPPFLAGS = -I$(top_builddir)/include
 lib_LIBRARIES = libudm.a

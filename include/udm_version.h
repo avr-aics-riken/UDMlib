@@ -15,9 +15,9 @@
  */
 
 /** UDMlibライブラリのバージョン */
-#define UDM_VERSION_NO  "1.0.7"
+#define UDM_VERSION_NO  "1.0.8"
 
 /** UDMlibライブラリのリビジョン */
-#define UDM_REVISION    "20150420_1200"
+#define UDM_REVISION    "20150524_1400"
 
 #endif /* _UDM_VERSION_H_ */
