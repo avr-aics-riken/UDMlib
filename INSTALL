@@ -130,7 +130,8 @@ Specify the directory path that Performance Monitor library is installed. This
 option is required if only you need a performance report.
 
 --with-zoltan=ZOLTAN_PATH
-Specify the directory path that Zoltan is installed.
+Specify the directory path that Zoltan is installed. The same MPI library must be used
+when Zoltan library was built.
 
 
 CC=C_COMPILER
@@ -159,6 +160,7 @@ Specify directory path for Fortran libraries.
 CONFIGURE EXAMPLES
 ==================
 
+# OpenMPI Wrapper compiler by Intel
 
 $ ./configure --prefix=/usr/local/UDMlib \
   --with-comp=INTEL \
@@ -171,37 +173,23 @@ $ ./configure --prefix=/usr/local/UDMlib \
   CFLAGS=-O3
 
 
-3.4.1 GNUコンパイラ + OPENMPI
+# GNU compiler + OPENMPI
+
+$ ./configure --prefix=/usr/local/udmlib \
+  --with-ompi=/usr/local/openmpi-1.6.5_gcc \
+  --with-cgns=/usr/local/cgns \
+  --with-tp=/usr/local/textparser \
+  --with-zoltan=/usr/local/zoltan-3.8
+
+
+
+# INTEL compiler + MPICH
+
 > ./configure --prefix=/usr/local/udmlib \
---with-ompi=/usr/local/openmpi-1.6.5_gcc \
---with-cgns=/usr/local/cgnslib_3.2.1 \
---with-tp=/usr/local/textparser \
---with-zoltan=/usr/local/zoltan-3.8
-
-ZoltanライブラリはOPENMPIライブラリを指定してコンパイルされたものである必要があります。
-
-3.4.2 INTELコンパイラ + MPICH
-> ./configure --prefix=/usr/local/udmlib \
---with-mpich=/usr/local/mpich-3.1.2_intel \
---with-cgns=/usr/local/cgnslib_3.2.1 \
---with-tp=/usr/local/textparser \
---with-zoltan=/usr/local/zoltan-3.8_mpich \
---with-comp=INTEL \
-CXX=/opt/intel/bin/icpc
-
-ZoltanライブラリはMPICHライブラリを指定してコンパイルされたものである必要があります。
-
-3.4.3 mpicxxコンパイラ
-> ./configure --prefix=/usr/local/udmlib \
---with-cgns=/usr/local/cgnslib_3.2.1 \
---with-tp=/usr/local/textparser \
---with-zoltan=/usr/local/zoltan-3.8  \
---host=x86_64-unknown-linux-gnu \
-CXX=/usr/local/openmpi-1.6.5_gcc/bin/mpicxx
-
---hostオプションを指定する必要があります。
-
-
-
-
+  --with-mpich=/usr/local/mpich-3.1.2_intel \
+  --with-cgns=/usr/local/cgnslib_3.2.1 \
+  --with-tp=/usr/local/textparser \
+  --with-zoltan=/usr/local/zoltan-3.8_mpich \
+  --with-comp=INTEL \
+  CXX=/opt/intel/bin/icpc
 
