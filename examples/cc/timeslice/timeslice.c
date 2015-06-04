@@ -11,11 +11,11 @@
  * 時系列CGNSファイルの出力
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <math.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include <udmlib.h>
 
 #ifdef __cplusplus

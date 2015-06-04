@@ -10,13 +10,13 @@
  * @file UdmFileInfo.cpp
  * index.dfiファイルのFileInfoデータクラスのソースファイル
  */
+#include "config/UdmFileInfoConfig.h"
 #include <errno.h>
 #if defined(_WIN32)
 #include <direct.h>
 #else
 #include <sys/stat.h>
 #endif
-#include "config/UdmFileInfoConfig.h"
 
 namespace udm {
 

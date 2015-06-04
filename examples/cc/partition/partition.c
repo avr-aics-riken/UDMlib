@@ -10,11 +10,11 @@
  * @file partition.c
  * CGNSモデルの分割
  */
+#include <mpi.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include "udmlib.h"
 
 #ifdef __cplusplus

@@ -10,12 +10,12 @@
  * @file partition.cpp
  * CGNSモデルの分割
  */
+#include <mpi.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include <udmlib.h>
 #include <model/UdmModel.h>
 

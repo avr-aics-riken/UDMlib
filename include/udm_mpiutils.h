@@ -15,10 +15,6 @@
 #ifndef _UDM_MPIUTILS_H_
 #define _UDM_MPIUTILS_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "udm_define.h"
-#include "udm_errorno.h"
 #ifndef WITHOUT_MPI
 #include <mpi.h>
 #else
@@ -98,6 +94,12 @@ typedef int MPI_Op;
 #define MPI_NO_OP   (MPI_Op)(0x5800000e)
 
 #endif
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "udm_define.h"
+#include "udm_errorno.h"
 
 #ifdef __cplusplus
 namespace udm {

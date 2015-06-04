@@ -9,8 +9,8 @@
 #ifndef _UDMCONFIGBASE_H_
 #define _UDMCONFIGBASE_H_
 
-#include <TextParser.h>
 #include "UdmBase.h"
+#include <TextParser.h>
 
 /**
  * @file UdmConfigDefine.h

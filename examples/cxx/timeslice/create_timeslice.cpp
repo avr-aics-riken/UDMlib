@@ -11,12 +11,12 @@
  * TimeSlice出力のFileCompositionTypeを設定する.
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
 #include <getopt.h>
-#include <mpi.h>
 #include "udmlib.h"
 #include "model/UdmModel.h"
 

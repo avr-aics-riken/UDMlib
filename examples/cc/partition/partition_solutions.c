@@ -11,10 +11,10 @@
  * 物理量を持つCGNSモデルの分割
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <math.h>
-#include <mpi.h>
 #include <udmlib.h>
 
 #ifdef __cplusplus

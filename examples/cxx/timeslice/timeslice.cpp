@@ -11,12 +11,12 @@
  * 時系列CGNSファイルの出力
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include <udmlib.h>
 #include <model/UdmModel.h>
 
