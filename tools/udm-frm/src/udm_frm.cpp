@@ -11,11 +11,11 @@
  * @brief  main関数
  */
 
+#include <udmlib.h>
 #include <stdio.h>
 #include <iostream>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <udmlib.h>
 #include <model/UdmModel.h>
 #include "UdmStaging.h"
 #include "udmfrm_version.h"

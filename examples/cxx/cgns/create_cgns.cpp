@@ -11,6 +11,7 @@
  * 6面体CGNSモデルを作成する.
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -18,7 +19,6 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include "udmlib.h"
 #include "model/UdmModel.h"
 
