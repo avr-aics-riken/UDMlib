@@ -1,10 +1,14 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file UdmUnitList.cpp
@@ -12,8 +16,8 @@
  * UdmUnitConfig, UdmUnitListConfigクラスのソースファイル
  */
 
-#include "config/UdmUnitListConfig.h"
 #include "TextParserTree.h"
+#include "config/UdmUnitListConfig.h"
 
 namespace udm {
 

@@ -1,22 +1,26 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file create_timeslice.cpp
  * TimeSlice出力のFileCompositionTypeを設定する.
  */
 
-#include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
 #include <getopt.h>
+#include <mpi.h>
 #include "udmlib.h"
 #include "model/UdmModel.h"
 

@@ -1,10 +1,14 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file udmlib.h
@@ -14,11 +18,10 @@
 #ifndef _UDMLIB_H_
 #define _UDMLIB_H_
 
-#include "udm_mpiutils.h"
-
 #include "udm_errorno.h"
 #include "udm_pathutils.h"
 #include "udm_version.h"
+#include "udm_mpiutils.h"
 #include "udm_define.h"
 #include "udm_strutils.h"
 

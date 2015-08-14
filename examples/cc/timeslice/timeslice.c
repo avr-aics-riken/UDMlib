@@ -1,21 +1,25 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file timeslice.cpp
  * 時系列CGNSファイルの出力
  */
 
-#include <mpi.h>
 #include <stdio.h>
 #include <math.h>
 #include <getopt.h>
 #include <sys/stat.h>
+#include <mpi.h>
 #include <udmlib.h>
 
 #ifdef __cplusplus

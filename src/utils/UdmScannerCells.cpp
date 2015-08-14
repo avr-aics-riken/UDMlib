@@ -1,10 +1,14 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 
 #include "model/UdmSolutionData.h"
@@ -204,6 +208,18 @@ UdmSize_t UdmScannerCells::getScanCgnsElementsIds(UdmElementType_t element_type,
         if (itr->size() <= 0) continue;
         if (element_type == Udm_MIXED) {
             UdmElementType_t type = (*itr)[0]->getElementType();
+            // modify by @hira at 2015/08/04
+            // 未定 || NODE
+            if (type == Udm_NODE) {
+            	UdmNode* node = (UdmNode*)(*itr)[0];
+            	// getParentCellのidは１〜
+            	if (node->getNumParentCells() > 0 && node->getParentCell(1) != NULL) {
+            		type = node->getParentCell(1)->getElementType();
+            	}
+            }
+            if (!UdmGeneral::isSupportElementType(type)) {
+            	continue;
+            }
             array[n++] = UdmGeneral::toCgnsElementType(type);
         }
         for (node_itr=itr->begin(); node_itr!=itr->end(); node_itr++) {

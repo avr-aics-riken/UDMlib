@@ -1,10 +1,14 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file UdmElements.cpp
@@ -336,7 +340,9 @@ UdmError_t UdmElements::readCgns(int index_file, int index_base, int index_zone,
             UdmElementType_t cell_type = this->toElementType(cgns_cell_type);
 
             // 要素タイプチェック
-            if (elem_type == Udm_MIXED || !this->isSupportElementType(elem_type)) {
+            // modify by @hira at 2015/08/04
+            // if (elem_type == Udm_MIXED || !this->isSupportElementType(elem_type)) {
+            if (cell_type == Udm_MIXED || !this->isSupportElementType(cell_type)) {
                 this->toStringElementType(cell_type, buf);
                 error = UDM_WARNING_HANDLER(UDM_WARNING_CGNS_NOTSUPPORT_ELEMENTTYPE, "read CGNS ElementType=%s", buf.c_str());
                 break;

@@ -1,16 +1,28 @@
+###################################################################################
 #
 # UDMlib - Unstructured Data Management Library
+#
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
 #
-
+# Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+# All rights reserved.
+#
+###################################################################################
 
 REVISION HISTORY
 ================
 
+------------------
+2015-08-14
+- introduce BUILD_DIR
 
 ------------------
-2015-05-24
+2015-08-04
+- modify read/write CGNS::MIXED Elements.
+
+------------------
+2015-05-18
 - fix shift operator.
 - modify isnan function.
 

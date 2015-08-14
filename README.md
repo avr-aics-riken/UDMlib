@@ -8,16 +8,16 @@ BSD (2-clause) license
 
 ## Software Requirement
 
-MPI library
+### MPI library
 
-CGNS   
+### CGNS
 - http://cgns.sourceforge.net/
 
-Zoltan 
+### Zoltan
 - http://www.cs.sandia.gov/Zoltan/Zoltan.html
 - Same MPI library must be used for compiling both Zoltan and UDMlib.
 
-Text Parser
+### Text Parser
 - http://avr-aics-riken.github.io/TextParser/
 
 ## how to build
@@ -27,3 +27,8 @@ Text Parser
 
 ## Configure examples
 see INSTALL
+
+## Copyright
+- Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo. All rights reserved.
+
+- Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN. All rights reserved.

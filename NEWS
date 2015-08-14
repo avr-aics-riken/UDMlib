@@ -1,15 +1,22 @@
+###################################################################################
 #
 # UDMlib - Unstructured Data Management Library
+#
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
 #
+# Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+# All rights reserved.
+#
+###################################################################################
 
 Release
 =======
 
-2015-05-24  1.0.8
-2015-04-20  1.0.7
-2015-04-17  1.0.6
-2015-04-11  1.0.1
-2014-10-15  1.0.0
+2015-08-14  Version 1.1.0
+2015-05-18  Version 1.0.8
+2015-04-20  Version 1.0.7
+2015-04-17  Version 1.0.6
+2015-04-11  Version 1.0.1
+2014-10-15  Version 1.0.0
 

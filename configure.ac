@@ -1,31 +1,82 @@
+###################################################################################
 #
 # UDMlib - Unstructured Data Management Library
+#
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
+#
+# Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+# All rights reserved.
+#
+###################################################################################
 #
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
 
 AC_PREREQ(2.57)
-AC_INIT([UDMlib], [1.0.8],[keno@riken.jp],[UDMlib])
+
+AC_INIT([UDMlib], [1.1.0],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
+
+echo "----------------------------------------"
+echo "Running UDMlib Configure Script"
+echo "----------------------------------------"
+
+
+AC_CONFIG_SRCDIR([src/UdmBase.cpp])
+
+
+#
+# Specify directory for auxillary build tools (e.g., install-sh, config.sub, config.guess) and M4 files.
+#
+
+AC_CONFIG_AUX_DIR(config)
+
+
+#
+# To prevent the source codes from breaking, we suppress to do configure in the source directory.
+#
+
+if test -e configure.ac ; then
+echo "Please run configure from a separate build directory. It is not allowd to run configure in the source directory."
+echo "Pleaes try ..."
+echo " "
+echo "$ cd BUILD_DIR"
+echo "$ ../configure [options]"
+exit
+fi
+
+
+#
+# Configure should create config.h from config.h.in
+#
+
+AC_CONFIG_HEADERS([config.h])
+
+
+#
+# Use automake
+#
 
 AM_INIT_AUTOMAKE()
-AC_CONFIG_SRCDIR([src/UdmBase.cpp])
-AC_CONFIG_HEADERS([config.h])
+
+
 
 #
 # revision No.
 #
-UDM_REVISION="20150524_1400"
+
+UDM_REVISION="20150814_1500"
 AC_SUBST(UDM_REVISION)
+
 
 
 ###############################################
 # setting default prefix
 #
-AC_PREFIX_DEFAULT([usr/local/udmlib])
-UDMLIB_INSTALL_DIR=${INSTALLDIR:-'/usr/local/udmlib'}
+
+AC_PREFIX_DEFAULT([usr/local/UDMlib])
+UDMLIB_INSTALL_DIR=${INSTALLDIR:-'/usr/local/UDMlib'}
 if test x"$prefix" = x"NONE" ; then
   prefix=$UDMLIB_INSTALL_DIR
 else
@@ -33,10 +84,13 @@ else
 fi
 AC_PREFIX_DEFAULT(prefix)
 
+
 #
 # compiler
 #
+
 AC_ARG_WITH(comp, [AS_HELP_STRING([--with-comp=(INTEL|FJ|GNU)],[Specify Compiler type])], , with_comp=none)
+
 
 # Checks for programs.
 AC_PROG_CXX
@@ -44,11 +98,14 @@ AC_PROG_CC
 AC_PROG_FC
 AC_PROG_RANLIB
 
+
 # Checks for libraries.
 ORG_CFLAGS="$CFLAGS"
 ORG_CXXFLAGS="$CXXFLAGS"
 ORG_LDFLAGS="$LDFLAGS"
 ORG_LIBS="$LIBS"
+
+
 
 #
 # MPI setting. wrappers like mpicxx, mpicc, mpiCC, mpic++, mpiFCCpx are taking
@@ -301,11 +358,13 @@ AC_SUBST(UDM_FLAGS)
 AC_SUBST(UDM_LDFLAGS)
 AC_SUBST(UDM_LIBS)
 AC_SUBST(UDM_SYMBOLS)
-UDM_FLAGS='-I$(top_builddir)/include'
-UDM_LDFLAGS='-L$(top_builddir)/lib'
+UDM_FLAGS='-I$(top_srcdir)/include'
+UDM_LDFLAGS='-L$(top_srcdir)/lib'
 UDM_LIBS='-ludm'
 
 UDM_SYMBOLS=''
+
+
 #
 # UdmSize_t Datatype
 #
@@ -317,6 +376,7 @@ if test x"$enable_size8" = x"enable_size8" ; then
     UDM_SYMBOLS="$UDM_SYMBOLS -DUDM_SIZE64"
 fi
 
+
 #
 # real8 in cc interface Datatype
 #
@@ -327,6 +387,7 @@ AC_ARG_ENABLE([real8],
 if test x"$enable_real8" = x"enable_real8" ; then
     UDM_SYMBOLS="$UDM_SYMBOLS -DUDM_REAL8"
 fi
+
 
 #
 # int8 in cc interface Datatype
@@ -362,9 +423,12 @@ CXXFLAGS="$ORG_CXXFLAGS"
 LDFLAGS="$ORG_LDFLAGS"
 LIBS="$ORG_LIBS"
 
+
+
 #
 # udm-config special flags
 #
+
 UDM_CFG_CFLAGS="-I$UDMLIB_INSTALL_DIR/include"" $UDM_SYMBOLS $MPICH_FLAGS $CGNS_FLAGS $TP_FLAGS $ZOLTAN_FLAGS"
 AC_SUBST(UDM_CFG_CFLAGS)
 
@@ -383,6 +447,9 @@ AC_SUBST(UDM_CFG_FC)
 UDM_CFG_FC_LD="$FC"
 AC_SUBST(UDM_CFG_FC_LD)
 
+
+
+
 ################################
 # Checks for header files.
 AC_HEADER_STDC
@@ -398,12 +465,16 @@ AC_CHECK_HEADERS([fcntl.h \
                   sys/time.h \
                   unistd.h])
 
+
+
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
 AC_C_CONST
 AC_C_INLINE
 AC_TYPE_SIZE_T
 AC_HEADER_TIME
+
+
 
 # Checks for library functions.
 AC_FUNC_ERROR_AT_LINE
@@ -413,9 +484,12 @@ AC_TYPE_SIGNAL
 AC_FUNC_VPRINTF
 AC_CHECK_FUNCS([atexit floor getcwd gethostname gettimeofday memmove memset mkdir realpath strcasecmp strchr strncasecmp strstr])
 
+
+
 #
 # MAKE_SUB_DIRS
 #
+
 AC_SUBST(MAKE_SUB_DIRS)
 MAKE_SUB_DIRS="src \
                doc \
@@ -431,9 +505,10 @@ if test x"$udm_enable_mpi" != x"without_mpi" ; then
                 examples/cc/timeslice \
                 examples/cc/dfi"
 fi
-if test x"$with_f90example" = x"yes" ; then
-  MAKE_SUB_DIRS="$MAKE_SUB_DIRS"" examples/f90_code"
-fi
+
+#if test x"$with_f90example" = x"yes" ; then
+#  MAKE_SUB_DIRS="$MAKE_SUB_DIRS"" examples/f90_code"
+#fi
 
 AC_CONFIG_FILES([Makefile \
                 src/Makefile \
@@ -453,3 +528,7 @@ AC_CONFIG_FILES([Makefile \
 AC_OUTPUT
 
 chmod +x ./udm-config
+
+echo "---------------------------------------------"
+echo "Finished Running UDMlib Configure Script"
+echo "---------------------------------------------"

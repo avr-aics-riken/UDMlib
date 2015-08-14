@@ -1,23 +1,27 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file UdmErrorHandler.cpp
  * エラーハンドラクラスのソースファイル
  */
 
-#include "UdmErrorHandler.h"
 #if defined(_WIN32) && !defined(__NUTC__)
 #include <windows.h>
 #else
 #include <sys/types.h>
 #include <unistd.h>
 #endif
+#include "UdmErrorHandler.h"
 
 namespace udm
 {

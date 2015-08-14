@@ -1,11 +1,18 @@
+###################################################################################
 #
 # UDMlib - Unstructured Data Management Library
+#
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
 #
+# Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+# All rights reserved.
+#
+###################################################################################
+
 AUTOMAKE_OPTIONS = subdir-objects
 
-AM_CPPFLAGS = -I$(top_builddir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
 lib_LIBRARIES = libudm.a
 
@@ -58,58 +65,58 @@ libudm_a_SOURCES = \
 
 udm_includedir = $(includedir)
 nobase_include_HEADERS = \
-		$(top_builddir)/include/udm_errorno.h \
-		$(top_builddir)/include/udm_version.h \
-		$(top_builddir)/include/udm_memutils.h \
-		$(top_builddir)/include/udm_mpiutils.h \
-		$(top_builddir)/include/udmlib.h \
-		$(top_builddir)/include/udm_pathutils.h \
-		$(top_builddir)/include/udm_define.h \
-		$(top_builddir)/include/udm_strutils.h \
-		$(top_builddir)/include/UdmErrorHandler.h \
-		$(top_builddir)/include/config/UdmFlowSolutionListConfig.h \
-		$(top_builddir)/include/config/UdmSettingsConfig.h \
-		$(top_builddir)/include/config/UdmDfiKeywords.h \
-		$(top_builddir)/include/config/UdmMpiConfig.h \
-		$(top_builddir)/include/config/UdmDfiConfig.h \
-		$(top_builddir)/include/config/UdmUnitListConfig.h \
-		$(top_builddir)/include/config/UdmDomainConfig.h \
-		$(top_builddir)/include/config/UdmDfiValue.h \
-		$(top_builddir)/include/config/UdmFilePathConfig.h \
-		$(top_builddir)/include/config/UdmFileInfoConfig.h \
-		$(top_builddir)/include/config/UdmSolutionFieldConfig.h \
-		$(top_builddir)/include/config/UdmTimeSliceConfig.h \
-		$(top_builddir)/include/config/UdmProcessConfig.h \
-		$(top_builddir)/include/config/UdmConfigBase.h \
-		$(top_builddir)/include/UdmBase.h \
-		$(top_builddir)/include/model/UdmFlowSolutions.h \
-		$(top_builddir)/include/model/UdmShell.h \
-		$(top_builddir)/include/model/UdmUserDefinedDatas.h \
-		$(top_builddir)/include/model/UdmEntity.h \
-		$(top_builddir)/include/model/UdmRankConnectivity.h \
-		$(top_builddir)/include/model/UdmCell.h \
-		$(top_builddir)/include/model/UdmNode.h \
-		$(top_builddir)/include/model/UdmSections.h \
-		$(top_builddir)/include/model/UdmGridCoordinates.h \
-		$(top_builddir)/include/model/UdmInfo.h \
-		$(top_builddir)/include/model/UdmIterativeData.h \
-		$(top_builddir)/include/model/UdmElements.h \
-		$(top_builddir)/include/model/UdmSolutionData.h \
-		$(top_builddir)/include/model/UdmGlobalRankid.h \
-		$(top_builddir)/include/model/UdmGeneral.h \
-		$(top_builddir)/include/model/UdmEntityVoxels.h \
-		$(top_builddir)/include/model/UdmSolid.h \
-		$(top_builddir)/include/model/UdmBar.h \
-		$(top_builddir)/include/model/UdmZone.h \
-		$(top_builddir)/include/model/UdmCoordsValue.h \
-		$(top_builddir)/include/model/UdmModel.h \
-		$(top_builddir)/include/model/UdmICellComponent.h \
-		$(top_builddir)/include/model/UdmComponent.h \
-		$(top_builddir)/include/partition/UdmLoadBalance.h \
-		$(top_builddir)/include/utils/UdmStopWatch.h \
-		$(top_builddir)/include/utils/UdmScannerCells.h \
-		$(top_builddir)/include/utils/UdmSerialization.h \
-		$(top_builddir)/include/utils/UdmSearchTable.h
+		$(top_srcdir)/include/udm_errorno.h \
+		$(top_srcdir)/include/udm_version.h \
+		$(top_srcdir)/include/udm_memutils.h \
+		$(top_srcdir)/include/udm_mpiutils.h \
+		$(top_srcdir)/include/udmlib.h \
+		$(top_srcdir)/include/udm_pathutils.h \
+		$(top_srcdir)/include/udm_define.h \
+		$(top_srcdir)/include/udm_strutils.h \
+		$(top_srcdir)/include/UdmErrorHandler.h \
+		$(top_srcdir)/include/config/UdmFlowSolutionListConfig.h \
+		$(top_srcdir)/include/config/UdmSettingsConfig.h \
+		$(top_srcdir)/include/config/UdmDfiKeywords.h \
+		$(top_srcdir)/include/config/UdmMpiConfig.h \
+		$(top_srcdir)/include/config/UdmDfiConfig.h \
+		$(top_srcdir)/include/config/UdmUnitListConfig.h \
+		$(top_srcdir)/include/config/UdmDomainConfig.h \
+		$(top_srcdir)/include/config/UdmDfiValue.h \
+		$(top_srcdir)/include/config/UdmFilePathConfig.h \
+		$(top_srcdir)/include/config/UdmFileInfoConfig.h \
+		$(top_srcdir)/include/config/UdmSolutionFieldConfig.h \
+		$(top_srcdir)/include/config/UdmTimeSliceConfig.h \
+		$(top_srcdir)/include/config/UdmProcessConfig.h \
+		$(top_srcdir)/include/config/UdmConfigBase.h \
+		$(top_srcdir)/include/UdmBase.h \
+		$(top_srcdir)/include/model/UdmFlowSolutions.h \
+		$(top_srcdir)/include/model/UdmShell.h \
+		$(top_srcdir)/include/model/UdmUserDefinedDatas.h \
+		$(top_srcdir)/include/model/UdmEntity.h \
+		$(top_srcdir)/include/model/UdmRankConnectivity.h \
+		$(top_srcdir)/include/model/UdmCell.h \
+		$(top_srcdir)/include/model/UdmNode.h \
+		$(top_srcdir)/include/model/UdmSections.h \
+		$(top_srcdir)/include/model/UdmGridCoordinates.h \
+		$(top_srcdir)/include/model/UdmInfo.h \
+		$(top_srcdir)/include/model/UdmIterativeData.h \
+		$(top_srcdir)/include/model/UdmElements.h \
+		$(top_srcdir)/include/model/UdmSolutionData.h \
+		$(top_srcdir)/include/model/UdmGlobalRankid.h \
+		$(top_srcdir)/include/model/UdmGeneral.h \
+		$(top_srcdir)/include/model/UdmEntityVoxels.h \
+		$(top_srcdir)/include/model/UdmSolid.h \
+		$(top_srcdir)/include/model/UdmBar.h \
+		$(top_srcdir)/include/model/UdmZone.h \
+		$(top_srcdir)/include/model/UdmCoordsValue.h \
+		$(top_srcdir)/include/model/UdmModel.h \
+		$(top_srcdir)/include/model/UdmICellComponent.h \
+		$(top_srcdir)/include/model/UdmComponent.h \
+		$(top_srcdir)/include/partition/UdmLoadBalance.h \
+		$(top_srcdir)/include/utils/UdmStopWatch.h \
+		$(top_srcdir)/include/utils/UdmScannerCells.h \
+		$(top_srcdir)/include/utils/UdmSerialization.h \
+		$(top_srcdir)/include/utils/UdmSearchTable.h
 
 all-local:
 	mkdir -p $(top_builddir)/lib

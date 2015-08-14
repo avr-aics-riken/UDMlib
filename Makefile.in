@@ -14,11 +14,17 @@
 
 @SET_MAKE@
 
+###################################################################################
 #
 # UDMlib - Unstructured Data Management Library
+#
 # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
 # All rights reserved.
 #
+# Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+# All rights reserved.
+#
+###################################################################################
 
 
 VPATH = @srcdir@
@@ -194,9 +200,11 @@ CTAGS = ctags
 CSCOPE = cscope
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/udm-config.in $(top_srcdir)/include/udm_version.h.in \
-	AUTHORS COPYING ChangeLog INSTALL NEWS README compile depcomp \
-	install-sh missing
+	$(srcdir)/udm-config.in $(top_srcdir)/config/compile \
+	$(top_srcdir)/config/install-sh $(top_srcdir)/config/missing \
+	$(top_srcdir)/include/udm_version.h.in AUTHORS COPYING \
+	ChangeLog INSTALL NEWS README config/compile config/depcomp \
+	config/install-sh config/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)

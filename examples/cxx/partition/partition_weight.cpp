@@ -1,20 +1,24 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file partition_weight.cpp
  * CGNSモデルの重みを持つ分割
  */
 
-#include <mpi.h>
 #include <stdio.h>
 #include <iostream>
 #include <sys/stat.h>
+#include <mpi.h>
 #include <udmlib.h>
 #include <model/UdmModel.h>
 

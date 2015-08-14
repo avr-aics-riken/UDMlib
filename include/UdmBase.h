@@ -1,10 +1,14 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 #ifndef _UDMBASE_H_
 #define _UDMBASE_H_
@@ -13,8 +17,6 @@
  * @file UdmBase.h
  * UDMlibライブラリのすべてのクラスの基底クラスのヘッダーファイル
  */
-
-#include "udmlib.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,6 +33,7 @@
 #include <limits>
 #include "UdmErrorHandler.h"
 #include "utils/UdmStopWatch.h"
+#include "udmlib.h"
 #include "udm_memutils.h"
 #include "udm_define.h"
 

@@ -1,10 +1,14 @@
-/*
- * udm-frm (File Rank Mapper for UDMlib)
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file UdmStaging.h
@@ -14,7 +18,6 @@
 #ifndef _UDMSTAGING_H_
 #define _UDMSTAGING_H_
 
-#include "model/UdmModel.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +27,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "model/UdmModel.h"
 
 #define UDMFRM_OUTPUT_RANKFORMAT            "%06d"
 #define UDMFRM_NUM_TIMESLICE_DIRECTORY      10

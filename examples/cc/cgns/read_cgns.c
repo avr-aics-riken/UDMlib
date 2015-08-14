@@ -1,20 +1,24 @@
-/*
- * UDMlib - Unstructured Data Management Library
- *
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
- * All rights reserved.
- *
- */
+// ##################################################################################
+//
+// UDMlib - Unstructured Data Management Library
+//
+// Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.
+// All rights reserved.
+//
+// Copyright (c) 2015 Advanced Institute for Computational Science, RIKEN.
+// All rights reserved.
+//
+// ###################################################################################
 
 /**
  * @file read_cgns.c
  * CGNSファイルを読み込む。
  */
 
-#include "udmlib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include "udmlib.h"
 
 #ifdef __cplusplus
 using namespace udm;
