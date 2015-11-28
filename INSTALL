@@ -105,7 +105,7 @@ $ make
 $ make install
 
 It is strongly recommended to use wrapper compiler for convenience. For instance, if you
-^^^^^^^^^^^^^^^^^^^^^^^
+      ^^^^^^^^^^^^^^^^^^^^
 want to compile with OpenMPI, compile OpenMPI library by a compiler you want to use before
 install related libraries (See BUILD LIBRARIES).
 
@@ -134,7 +134,8 @@ Configure options:
    Specify the directory path that is installed TextParser library.
 
 --with-zoltan=ZOLTAN_PATH
-   Specify the directory path that Zoltan is installed.
+   Specify the directory path that Zoltan is installed. Zoltan library must be the same
+   compiler with the one used to build OpenMPI library.
 
 
 CC=C_COMPILER
@@ -155,37 +156,41 @@ CXXFLAGS=CXX_OPTIONS
 CONFIGURE EXAMPLES
 ==================
 
+# Intel compiler
 
-$ ../configure --prefix=/usr/local/UDMlib \
-  --with-comp=INTEL \
-  --with-cgns=/usr/local/cgns \
-  --with-zoltan=/usr/local/Zoltan \
-  --with-tp=/usr/local/FFV/TextParser \
-  CXX=mpicxx \
-  CXXFLAGS=-O3 \
-  CC=mpicc \
-  CFLAGS=-O3
+## with a wrapper compiler
+$ ../configure --prefix=${HOME}/UDMlib \
+               --with-comp=INTEL \
+               --with-cgns=${HOME}/CGNS \
+               --with-zoltan=${HOME}/ZOLTAN \
+               --with-tp=${FFV_HOME}/TextParser \
+               CXX=mpicxx \
+               CXXFLAGS=-O3 \
+               CC=mpicc \
+               CFLAGS=-O3
+
+## MPICH
+$ ../configure --prefix=${HOME}/UDMlib \
+               --with-mpich=/usr/local/mpich-3.1.2_intel \
+               --with-cgns=${HOME}/CGNS \
+               --with-tp=${FFV_HOME}/TextParser \
+               --with-zoltan=${HOME}/ZOLTAN \
+               --with-comp=INTEL \
+               CXX=/opt/intel/bin/icpc
 
 
-3.4.1 GNUコンパイラ + OPENMPI
-> ./configure --prefix=/usr/local/udmlib \
---with-ompi=/usr/local/openmpi-1.6.5_gcc \
---with-cgns=/usr/local/cgnslib_3.2.1 \
---with-tp=/usr/local/textparser \
---with-zoltan=/usr/local/zoltan-3.8
 
-ZoltanライブラリはOPENMPIライブラリを指定してコンパイルされたものである必要があります。
+# GNU compiler with a wrapper compiler
+$ ../configure --prefix=${HOME}/UDMlib \
+               --with-comp=GNU \
+               --with-cgns=${HOME}/CGNS \
+               --with-tp=${FFV_HOME}/TextParser \
+               --with-zoltan=${HOME}/ZOLTAN \
+               CXX=mpicxx \
+               CXXFLAGS=-O3 \
+               CC=mpicc \
+               CFLAGS=-O3
 
-3.4.2 INTELコンパイラ + MPICH
-> ./configure --prefix=/usr/local/udmlib \
---with-mpich=/usr/local/mpich-3.1.2_intel \
---with-cgns=/usr/local/cgnslib_3.2.1 \
---with-tp=/usr/local/textparser \
---with-zoltan=/usr/local/zoltan-3.8_mpich \
---with-comp=INTEL \
-CXX=/opt/intel/bin/icpc
-
-ZoltanライブラリはMPICHライブラリを指定してコンパイルされたものである必要があります。
 
 3.4.3 mpicxxコンパイラ
 > ./configure --prefix=/usr/local/udmlib \

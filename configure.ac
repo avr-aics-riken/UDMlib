@@ -16,7 +16,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT([UDMlib], [1.1.0],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
+AC_INIT([UDMlib], [1.1.1],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
 
 echo "----------------------------------------"
 echo "Running UDMlib Configure Script"
@@ -38,8 +38,8 @@ AC_CONFIG_AUX_DIR(config)
 #
 
 if test -e configure.ac ; then
-echo "Please run configure from a separate build directory. It is not allowd to run configure in the source directory."
-echo "Pleaes try ..."
+echo "Please run configure from a separate build directory. It is not allowed to run configure in the source directory."
+echo "Please try ..."
 echo " "
 echo "$ cd BUILD_DIR"
 echo "$ ../configure [options]"
@@ -66,7 +66,7 @@ AM_INIT_AUTOMAKE()
 # revision No.
 #
 
-UDM_REVISION="20150814_1500"
+UDM_REVISION="20151129_0130"
 AC_SUBST(UDM_REVISION)
 
 
@@ -90,6 +90,9 @@ AC_PREFIX_DEFAULT(prefix)
 #
 
 AC_ARG_WITH(comp, [AS_HELP_STRING([--with-comp=(INTEL|FJ|GNU)],[Specify Compiler type])], , with_comp=none)
+if test x"$with_ompi" = x"none" ; then
+  AC_MSG_ERROR("ERROR: Kind of compiler is not specified!")
+fi
 
 
 # Checks for programs.

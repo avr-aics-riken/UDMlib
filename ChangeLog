@@ -14,6 +14,14 @@ REVISION HISTORY
 ================
 
 ------------------
+2015-11-28
+- Fix the build error when compiling with ICC
+catastrophic error: #error directive: "SEEK_SET is #defined but must not
+be for the C++ binding of MPI. Include mpi.h before stdio.h"
+
+--with-comp becomes essential
+
+------------------
 2015-08-14
 - introduce BUILD_DIR
 

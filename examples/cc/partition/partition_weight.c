@@ -15,9 +15,9 @@
  * CGNSモデルの重みを持つ分割
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include <udmlib.h>
 
 #ifdef __cplusplus

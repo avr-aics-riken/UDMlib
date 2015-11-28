@@ -15,11 +15,11 @@
  * 時系列CGNSファイルの出力
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <math.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include <udmlib.h>
 
 #ifdef __cplusplus
@@ -27,8 +27,8 @@ using namespace udm;
 #endif
 
 #define  MAX_TIMESTEP           100
-#define  WRITE_STEP              10
-#define  TIMESTEP_TIME           0.01
+#define  WRITE_STEP             10
+#define  TIMESTEP_TIME          0.01
 
 
 /**

@@ -389,7 +389,8 @@ EXTRA_DIST = udm-config.in \
              examples/cxx/dfi/dfi_run.sh \
              examples/cxx/cgns/cgns_run.sh \
              examples/cxx/partition/partition_run.sh \
-             examples/cxx/timeslice/timeslice_run.sh
+             examples/cxx/timeslice/timeslice_run.sh \
+             BUILD_DIR/.gitkeep
 
 dist_data_DATA = AUTHORS COPYING ChangeLog README LICENSE NEWS README.md
 all: config.h

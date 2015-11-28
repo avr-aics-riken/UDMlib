@@ -15,13 +15,13 @@
  * 6面体CGNSモデルを作成する.
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <getopt.h>
 #include <sys/stat.h>
-#include <mpi.h>
 #include "udmlib.h"
 
 #define VOXEL_I_SIZE        32
