@@ -15,10 +15,10 @@
  * ユーザ定義CGNS要素の取得、設定を行う。
  */
 
-
+#include <udmlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
-#include <udmlib.h>
+
 
 #ifdef __cplusplus
 using namespace udm;

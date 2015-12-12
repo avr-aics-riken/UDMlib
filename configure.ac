@@ -16,7 +16,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT([UDMlib], [1.1.1],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
+AC_INIT([UDMlib], [1.1.2],[keno@{iis.u-tokyo.ac, riken}.jp],[UDMlib])
 
 echo "----------------------------------------"
 echo "Running UDMlib Configure Script"
@@ -66,7 +66,7 @@ AM_INIT_AUTOMAKE()
 # revision No.
 #
 
-UDM_REVISION="20151129_0130"
+UDM_REVISION="20151212_2100"
 AC_SUBST(UDM_REVISION)
 
 

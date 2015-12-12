@@ -18,6 +18,7 @@
  * UDMlibライブラリのすべてのクラスの基底クラスのヘッダーファイル
  */
 
+#include "udmlib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -33,7 +34,6 @@
 #include <limits>
 #include "UdmErrorHandler.h"
 #include "utils/UdmStopWatch.h"
-#include "udmlib.h"
 #include "udm_memutils.h"
 #include "udm_define.h"
 
