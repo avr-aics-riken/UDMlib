@@ -15,13 +15,15 @@
  * エラーハンドラクラスのソースファイル
  */
 
+// Moved here for the Intel Compiler
+#include "UdmErrorHandler.h"
+
 #if defined(_WIN32) && !defined(__NUTC__)
 #include <windows.h>
 #else
 #include <sys/types.h>
 #include <unistd.h>
 #endif
-#include "UdmErrorHandler.h"
 
 namespace udm
 {

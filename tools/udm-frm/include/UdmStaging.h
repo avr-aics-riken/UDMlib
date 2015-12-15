@@ -18,6 +18,9 @@
 #ifndef _UDMSTAGING_H_
 #define _UDMSTAGING_H_
 
+// Moved here for the Intel Compiler
+#include "model/UdmModel.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,7 +30,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "model/UdmModel.h"
 
 #define UDMFRM_OUTPUT_RANKFORMAT            "%06d"
 #define UDMFRM_NUM_TIMESLICE_DIRECTORY      10

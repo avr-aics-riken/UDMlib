@@ -18,10 +18,12 @@
 #ifndef _UDMLIB_H_
 #define _UDMLIB_H_
 
+// Moved here for the Intel Compiler
+#include "udm_mpiutils.h"
+
 #include "udm_errorno.h"
 #include "udm_pathutils.h"
 #include "udm_version.h"
-#include "udm_mpiutils.h"
 #include "udm_define.h"
 #include "udm_strutils.h"
 

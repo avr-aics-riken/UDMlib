@@ -24,6 +24,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+// Included for Intel Compiler
+#include <ctype.h>
+
 #ifdef __cplusplus
 namespace udm {
 #endif
