@@ -16,8 +16,10 @@
  * UdmUnitConfig, UdmUnitListConfigクラスのソースファイル
  */
 
-#include "TextParserTree.h"
+// Moved here for the Intel Compiler
 #include "config/UdmUnitListConfig.h"
+
+#include "TextParserTree.h"
 
 namespace udm {
 

@@ -13,8 +13,10 @@
 #ifndef _UDMCONFIGBASE_H_
 #define _UDMCONFIGBASE_H_
 
-#include <TextParser.h>
+// Moved here for the Intel Compiler
 #include "UdmBase.h"
+
+#include <TextParser.h>
 
 /**
  * @file UdmConfigDefine.h
