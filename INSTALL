@@ -54,6 +54,16 @@ $ make
 $ sudo make install
 
 
+1.5) Install Zlib
+$ tar xvfz zlib-x.x.x.tar.gz
+$ cd zlib-x.x.x
+$ export CC=gcc && ./configure --prefix=${HOME}/Zlib
+$ make
+$ make install
+
+*) You may move header files and libz.a into Zlib directory.
+
+
 2) Install script for CGNS
 --------------------------
 $ cat config_cgns.sh
