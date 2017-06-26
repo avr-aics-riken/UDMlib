@@ -47,4 +47,3 @@ $MPI_EXEC -np 4 ./timeslice ./excludegrid_appendstep_gridtimeslice/index.dfi
 $MPI_EXEC -np 4 ./timeslice ./field_directory/index.dfi
 $MPI_EXEC -np 4 ./timeslice ./timeslice_directory/index.dfi
 $MPI_EXEC -np 4 ./timeslice ./field_timeslice/index.dfi
-

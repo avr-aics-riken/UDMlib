@@ -173,27 +173,6 @@ When you install staging tool onto a login node with cross-compiling environment
 
 ## Note for building required libraries
 
-### OpenMPI
-
-~~~
-$ cat config_ompi.sh
-#!/bin/sh
-export CC=icc
-export CFLAGS=-O3
-export CXX=icpc
-export CXXFLAGS=-O3
-export F77=ifort
-export FFLAGS=-O3
-export FC=ifort
-export FCFLAGS=-O3
-./configure --prefix=$1
-~~~
-
-~~~
-$ config_ompi.sh /install-dir
-$ make && make install
-~~~
-
 
 ### Zlib
 
@@ -203,6 +182,8 @@ $ cd zlib-x.x.x
 $ export CC=icc && ./configure --prefix=${HOME}/Zlib
 $ make && make install
 ~~~
+
+* In case of Futjitsu compiler CC=fccpx
 
 
 ### SZIP
@@ -215,6 +196,9 @@ $ export CXX=icpc CXXFLAGS=-O3
 $ ./configure --prefix=${HOME}/SZIP
 $ make && make install
 ~~~
+
+* In case of Fujitsu compiler CC=fccpx, CXX=FCCpx, and add --host=x86_64-unknown-linux-gnu
+
 
 ### HDF5
 
@@ -271,6 +255,7 @@ $ make install
 ### TextParser
 
 See Readme.md of TextParser
+
 
 
 ## EXAMPLES

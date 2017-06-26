@@ -4,6 +4,11 @@
 ## REVISION HISTORY
 
 ---
+- 2017-06-26  Version 1.2.1
+  - trim package
+
+
+---
 - 2017-06-26  Version 1.2.0
   - Cmake version
   - ctest still fails for test number 11-13, 25, 28, 39-43, 53, 56
