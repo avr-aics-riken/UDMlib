@@ -585,7 +585,7 @@ UdmEntity* UdmGlobalRankidList::getReferenceEntity(
     std::vector<UdmGlobalRankid>::const_iterator found_itr;
     bool found = this->findGlobalRankid(UdmGlobalRankid(rankno, localid), found_itr);
     if (!found) {
-        return false;
+        return NULL;
     }
     UdmEntity* entity = found_itr->getReferenceEntity();
 
