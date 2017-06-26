@@ -193,11 +193,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // UDMlibバージョン情報表示
-    if (myrank == 0) {
-        udm_print_version();
-    }
-
 #if 0        // for debug
     MPI_Barrier(MPI_COMM_WORLD);
     UdmErrorHandler *handler = UdmErrorHandler::getInstance();
@@ -343,6 +338,3 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-
-
-

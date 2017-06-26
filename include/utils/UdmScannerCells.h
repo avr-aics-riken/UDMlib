@@ -13,8 +13,8 @@
 #ifndef _UDMVISITORCELLS_H_
 #define _UDMVISITORCELLS_H_
 
-#include <algorithm>
 #include "UdmBase.h"
+#include <algorithm>
 
 /**
  * @file UdmVisitorCells.h

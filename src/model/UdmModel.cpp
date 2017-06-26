@@ -1068,11 +1068,12 @@ UdmError_t UdmModel::writeCgnsLinkFile(
     }
 
     // 再度、一度閉じて、開き直さないと、書込ノードが取得できない。
-    this->closeWriteCgnsFile(index_file);
+    //this->closeWriteCgnsFile(index_file);
+
     // CGNSファイル:open
-    if (cg_open(cgns_filename, CG_MODE_MODIFY, &index_file) != CG_OK) {
-        return UDM_ERROR_HANDLER(UDM_ERROR_CGNS_OPENERROR, "filename=%s, cgns_error=%s", cgns_filename, cg_get_error());
-    }
+    //if (cg_open(cgns_filename, CG_MODE_MODIFY, &index_file) != CG_OK) {
+    //    return UDM_ERROR_HANDLER(UDM_ERROR_CGNS_OPENERROR, "filename=%s, cgns_error=%s", cgns_filename, cg_get_error());
+    //}
 
     // CGNS:BaseIterativeDataを出力する.
     if (this->writeCgnsIterativeDatas(index_file, index_base, timeslice_step, timeslice_time, grid_timeslice) != UDM_OK) {

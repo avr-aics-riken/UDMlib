@@ -61,7 +61,7 @@ typedef  int        UdmInteger_t;
 #define      UDM_CGNS_NAME_LENGTH                    33
 #define      UDM_CGNS_TEXT_UDMINFO_DESCRIPTION          "/*\n\
  * UDMlib - Unstructured Data Management Library\n\
- * Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.\n\
+ # Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo.\n\
  * All rights reserved.\n\
  */"
 #define      UDM_CGNS_NAME_USERDEFINEDDATAS          "UdmUserDefinedData"

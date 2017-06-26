@@ -173,37 +173,10 @@ typedef enum {
 inline char* udm_get_version(char *version)
 {
     if (version == NULL) return NULL;
-    strcpy(version, UDM_VERSION_NO);
+    strcpy(version, UDM_VERSION);
     return version;
 }
 
-
-/**
- * UDMlibライブラリのリビジョンを取得する
- * @param [out] revision        UDMlibライブラリのリビジョン
- * @return        revisionポインタ
- */
-inline char* udm_get_revision(char *revision)
-{
-    if (revision == NULL) return NULL;
-    strcpy(revision, UDM_REVISION);
-    return revision;
-}
-
-/**
- * UDMlibライブラリのバージョン情報を出力する.
- */
-inline void udm_print_version()
-{
-    printf("/***********************************************************/ \n");
-    printf("  UDMlib : Unstructured Data Management Library : Version=%s, Revision=%s \n",
-            UDM_VERSION_NO, UDM_REVISION);
-    printf("  Copyright (C) 2012-2015 Institute of Industrial Science, The University of Tokyo. \n");
-    printf("  All rights reserved. \n");
-    printf("/***********************************************************/ \n");
-
-    return;
-}
 
 
 // C用　API 関数

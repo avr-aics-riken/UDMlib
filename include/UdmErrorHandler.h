@@ -18,9 +18,9 @@
  * エラーハンドラクラスのヘッダーファイル
  */
 
-#include <stdarg.h>
 #include "UdmBase.h"
 #include "udm_errorno.h"
+#include <stdarg.h>
 
 #define     UDM_DEFAULT_DEBUG_LEVEL            0x0002
 #define     UDM_DEBUG_LEVEL_ERROR_MASK         0x00FF

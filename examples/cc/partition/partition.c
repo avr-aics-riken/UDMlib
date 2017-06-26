@@ -55,7 +55,7 @@ void print_help()
  * @param argc                 起動引数の数
  * @param argv                 起動引数の文字列
  * @param filename             入力DFIファイル名
- * @param output_path          出力パス（デフォルト=output)
+ * @param output_path          出力パス（デフォルト=../output)
  * @param enable_hyper         Zoltan::PACKAGE=HYPERGRAPH (デフォルト)
  * @param enable_graph         Zoltan::PACKAGE=GRAPH
  * @param enable_partition     Zoltan::LB_APPROACH=PARTITION (デフォルト)
@@ -191,11 +191,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // UDMlibバージョン情報表示
-    if (myrank == 0) {
-        udm_print_version();
-    }
-
 #if 0        // for debug
     MPI_Barrier(MPI_COMM_WORLD);
     udm_debug_setlevel(0x04);
@@ -317,6 +312,3 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-
-
-
