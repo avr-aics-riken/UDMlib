@@ -29,19 +29,8 @@ link_directories(
       ${CGNS_LIB}
       ${HDF5_LIB}
       ${TP_LIB}
-      ${Z_LIB}
-      ${SZIP_LIB}
 )
 
-if(with_Z_LIB AND with_SZIP_LIB)
-   set(EXT_LIB "-lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lsz -lz") 
-elseif(with_Z_LIB)
-  set(EXT_LIB "-lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lz") 
-elseif(with_SZIP_LIB)
-  set(EXT_LIB "-lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lsz") 
-else()
-  set(EXT_LIB "-lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5") 
-endif()
 
 #########################
 # cgns
@@ -50,7 +39,7 @@ endif()
 #### Test1 : create_cgns
 
 add_executable(create_cgns_cpp cgns/create_cgns.cpp)
-target_link_libraries(create_cgns_cpp ${EXT_LIB})
+target_link_libraries(create_cgns_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters
     "--name=model_4x4x4/cgns_hexa.cgns"
     "--size=4,4,4"
@@ -62,7 +51,7 @@ add_test(NAME TEST_CPP_1 COMMAND "./create_cgns_cpp" ${test_parameters})
 ### Test2 : read_cgns
 
 add_executable(read_cgns_cpp cgns/read_cgns.cpp)
-target_link_libraries(read_cgns_cpp  ${EXT_LIB})
+target_link_libraries(read_cgns_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters
     "model_4x4x4/cgns_hexa_id000000.cgns"
     )
@@ -72,7 +61,7 @@ add_test(NAME TEST_CPP_2 COMMAND "read_cgns_cpp" ${test_parameters})
 ### Test3 : vtk2cgns
 
 add_executable(vtk2cgns_cpp cgns/vtk2cgns.cpp)
-target_link_libraries(vtk2cgns_cpp  ${EXT_LIB})
+target_link_libraries(vtk2cgns_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters -np 4
     "./vtk2cgns_cpp"
     "${PROJECT_SOURCE_DIR}/examples/data/torus.tetra.vtk"
@@ -83,7 +72,7 @@ add_test(NAME TEST_CPP_3 COMMAND "mpirun" ${test_parameters})
 ### Test4 : create_multi
 
 add_executable(create_multi_cpp cgns/create_multi.cpp)
-target_link_libraries(create_multi_cpp  ${EXT_LIB})
+target_link_libraries(create_multi_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters -np 4
     "./create_multi_cpp"
     "--name=cgns_multi/cgns_hexa.cgns"
@@ -96,7 +85,7 @@ add_test(NAME TEST_CPP_4 COMMAND "mpirun" ${test_parameters})
 ### Test5 : user_defined
 
 add_executable(user_defined_cpp cgns/user_defined.cpp)
-target_link_libraries(user_defined_cpp  ${EXT_LIB})
+target_link_libraries(user_defined_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters
     "model_4x4x4/index.dfi"
     )
@@ -111,7 +100,7 @@ add_test(NAME TEST_CPP_5 COMMAND "user_defined_cpp" ${test_parameters})
 ### Test6 : dfi_unit
 
 add_executable(dfi_unit_cpp dfi/dfi_unit.cpp)
-target_link_libraries(dfi_unit_cpp  ${EXT_LIB})
+target_link_libraries(dfi_unit_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters
     "model_4x4x4/index.dfi"
     )
@@ -136,7 +125,7 @@ add_test(NAME TEST_CPP_7 COMMAND "./create_cgns_cpp" ${test_parameters})
 ### Test8 : partition : partition from 1 to 4
 
 add_executable(partition_cpp partition/partition.cpp)
-target_link_libraries(partition_cpp  ${EXT_LIB})
+target_link_libraries(partition_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters -np 4
     "./partition_cpp"
     "input_32/index.dfi"
@@ -198,7 +187,7 @@ add_test(NAME TEST_CPP_13 COMMAND "mpirun" ${test_parameters})
 ### Test14 : partition_weight
 
 add_executable(partition_weight_cpp partition/partition_weight.cpp)
-target_link_libraries(partition_weight_cpp ${EXT_LIB})
+target_link_libraries(partition_weight_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters -np 8
     "./partition_weight_cpp"
     "input_32/index.dfi"
@@ -209,7 +198,7 @@ add_test(NAME TEST_CPP_14 COMMAND "mpirun" ${test_parameters})
 ### Test15 : partition_solutions
 
 add_executable(partition_solutions_cpp partition/partition_solutions.cpp)
-target_link_libraries(partition_solutions_cpp  ${EXT_LIB})
+target_link_libraries(partition_solutions_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters -np 8
     "./partition_solutions_cpp"
     "input_32/index.dfi"
@@ -235,7 +224,7 @@ add_test(NAME TEST_CPP_16 COMMAND "./create_cgns_cpp" ${test_parameters})
 #### Test17-27 : create_timeslice
 
 add_executable(create_timeslice_cpp timeslice/create_timeslice.cpp)
-target_link_libraries(create_timeslice_cpp  ${EXT_LIB})
+target_link_libraries(create_timeslice_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters
     "--input=input/index.dfi"
     "--output=includegrid_eachstep_gridconstant"
@@ -343,7 +332,7 @@ add_test(NAME TEST_CPP_27 COMMAND "./create_timeslice_cpp" ${test_parameters})
 #### Test28-40 : timeslice
 
 add_executable(timeslice_cpp timeslice/timeslice.cpp)
-target_link_libraries(timeslice_cpp  ${EXT_LIB})
+target_link_libraries(timeslice_cpp -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
 set (test_parameters  -np 4
     "./timeslice_cpp"
     "./includegrid_eachstep_gridconstant/index.dfi"

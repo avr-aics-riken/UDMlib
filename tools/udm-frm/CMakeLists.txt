@@ -31,8 +31,6 @@ link_directories(
       ${CGNS_LIB}
       ${HDF5_LIB}
       ${TP_LIB}
-      ${Z_LIB}
-      ${SZIP_LIB}
 )
 
 
@@ -44,27 +42,10 @@ set(frm_files
 
 if(with_MPI)
   add_executable(frm ${frm_files})
-  if(with_Z_LIB AND with_SZIP_LIB)
-     target_link_libraries(frm -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lsz -lz)
-  elseif(with_Z_LIB)
-     target_link_libraries(frm -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lz)
-  elseif(with_SZIP_LIB)
-     target_link_libraries(frm -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5 -lsz)
-  else()
-     target_link_libraries(frm -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
-  endif()
+  target_link_libraries(frm -lUDMmpi -lTPmpi -lzoltan -lcgns -lhdf5)
   install(TARGETS frm DESTINATION bin)
 else()
   add_executable(frm ${frm_files})
-  if(with_Z_LIB AND with_SZIP_LIB)
-     target_link_libraries(frm -lUDM -lTP -lzoltan -lcgns -lhdf5 -lsz -lz)
-  elseif(with_Z_LIB)
-     target_link_libraries(frm -lUDM -lTP -lzoltan -lcgns -lhdf5 -lz)
-  elseif(with_SZIP_LIB)
-     target_link_libraries(frm -lUDM -lTP -lzoltan -lcgns -lhdf5 -lsz)
-  else()
-     target_link_libraries(frm -lUDM -lTP -lzoltan -lcgns -lhdf5)
-  endif()
+  target_link_libraries(frm -lUDM -lTP -lzoltan -lcgns -lhdf5)
   install(TARGETS frm DESTINATION bin)
 endif()
-

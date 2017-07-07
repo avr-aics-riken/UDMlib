@@ -70,8 +70,8 @@ set (CMAKE_INSTALL_PREFIX "${INSTALL_DIR}")
 
 
 #######
-set(PROJECT_VERSION "1.2.1")
-set(LIB_REVISION "20170626_1400")
+set(PROJECT_VERSION "1.2.2")
+set(LIB_REVISION "20170707_1530")
 
 message(" ")
 message("PROJECT : UDMlib " ${PROJECT_VERSION} " : " ${LIB_REVISION})
@@ -126,6 +126,10 @@ message( STATUS "Type of floating point : "  ${real_type})
 message( STATUS "Utilities              : "  ${with_util})
 message( STATUS "MPI support            : "  ${with_MPI})
 message( STATUS "Example                : "  ${with_example})
+message( STATUS "TextParser support     : "  ${with_TP})
+message( STATUS "CGNS support           : "  ${with_CGNS})
+message( STATUS "HDF5 support           : "  ${with_HDF5})
+message( STATUS "ZOLTAN support         : "  ${with_ZOLTAN})
 message(" ")
 
 if(USE_F_TCS STREQUAL "YES")
@@ -181,18 +185,6 @@ ENDIF()
 
 
 # HDF5
-IF(with_Z_LIB)
-  SET(Z_LIB    "${with_Z_LIB}")
-ELSE()
-  MESSAGE("Error: can not find Zlib library.")
-ENDIF()
-
-IF(with_SZIP_LIB)
-  SET(SZIP_LIB "${with_SZIP_LIB}")
-ELSE()
-  MESSAGE("Error: can not find SZip library.")
-ENDIF()
-
 IF(with_HDF5)
   SET(HDF5_DIR "${with_HDF5}")
   SET(HDF5_INC "${HDF5_DIR}/include")
@@ -213,15 +205,6 @@ ENDIF()
 
 
 add_definitions(-DHAVE_CONFIG_H)
-
-message(" ")
-message( STATUS "TextParser support     : "  ${with_TP})
-message( STATUS "CGNS support           : "  ${with_CGNS})
-message( STATUS "HDF5 support           : "  ${with_HDF5})
-message( STATUS "   with Zip support    : "  ${with_Z_LIB})
-message( STATUS "   with Szip support   : "  ${with_SZIP_LIB})
-message( STATUS "ZOLTAN support         : "  ${with_ZOLTAN})
-message(" ")
 
 
 
@@ -287,7 +270,6 @@ if(with_example)
   if (NOT with_MPI)
     message("Examples require MPI")
   else()
-    # These C-language based examples need to be compiled with C++ compiler   
     add_subdirectory(examples/cc)
     add_subdirectory(examples/cxx)
   endif()

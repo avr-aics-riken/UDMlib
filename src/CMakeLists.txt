@@ -105,11 +105,6 @@ install(FILES
         ${PROJECT_SOURCE_DIR}/include/UdmBase.h
         ${PROJECT_SOURCE_DIR}/include/UdmErrorHandler.h
         ${PROJECT_SOURCE_DIR}/include/udmlib.h
-        ${PROJECT_BINARY_DIR}/include/udm_version.h
-        DESTINATION include
-)
-
-install(FILES
         ${PROJECT_SOURCE_DIR}/include/config/UdmFlowSolutionListConfig.h
         ${PROJECT_SOURCE_DIR}/include/config/UdmSettingsConfig.h
         ${PROJECT_SOURCE_DIR}/include/config/UdmDfiKeywords.h
@@ -124,10 +119,6 @@ install(FILES
         ${PROJECT_SOURCE_DIR}/include/config/UdmTimeSliceConfig.h
         ${PROJECT_SOURCE_DIR}/include/config/UdmProcessConfig.h
         ${PROJECT_SOURCE_DIR}/include/config/UdmConfigBase.h
-        DESTINATION include/config
-)
-
-install(FILES
         ${PROJECT_SOURCE_DIR}/include/model/UdmFlowSolutions.h
         ${PROJECT_SOURCE_DIR}/include/model/UdmShell.h
         ${PROJECT_SOURCE_DIR}/include/model/UdmUserDefinedDatas.h
@@ -151,18 +142,11 @@ install(FILES
         ${PROJECT_SOURCE_DIR}/include/model/UdmModel.h
         ${PROJECT_SOURCE_DIR}/include/model/UdmICellComponent.h
         ${PROJECT_SOURCE_DIR}/include/model/UdmComponent.h
-        DESTINATION include/model
-)
-
-install(FILES
         ${PROJECT_SOURCE_DIR}/include/partition/UdmLoadBalance.h
-        DESTINATION include/partition
-)
-
-install(FILES
         ${PROJECT_SOURCE_DIR}/include/utils/UdmStopWatch.h
         ${PROJECT_SOURCE_DIR}/include/utils/UdmScannerCells.h
         ${PROJECT_SOURCE_DIR}/include/utils/UdmSerialization.h
         ${PROJECT_SOURCE_DIR}/include/utils/UdmSearchTable.h
-        DESTINATION include/utils
+        ${PROJECT_BINARY_DIR}/include/udm_version.h
+        DESTINATION include
 )

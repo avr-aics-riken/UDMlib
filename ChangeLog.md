@@ -4,6 +4,11 @@
 ## REVISION HISTORY
 
 ---
+- 2017-07-07  Version 1.2.2
+  - set(CMAKE_FIND_ROOT_PATH /opt/FJSVtclang/1.2.0) in Toolchain_K.cmake
+
+
+---
 - 2017-06-26  Version 1.2.1
   - trim package
 
